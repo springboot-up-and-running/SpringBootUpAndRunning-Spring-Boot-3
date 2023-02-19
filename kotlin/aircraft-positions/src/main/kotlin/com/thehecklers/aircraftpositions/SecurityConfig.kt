@@ -1,17 +1,19 @@
 package com.thehecklers.aircraftpositions
 
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.factory.PasswordEncoderFactories
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
+import org.springframework.security.web.SecurityFilterChain
 
 
 @EnableWebSecurity
-class SecurityConfig : WebSecurityConfigurerAdapter() {
+@Configuration
+class SecurityConfig {
     private val pwEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder()
 
     @Bean
@@ -34,14 +36,17 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         return InMemoryUserDetailsManager(peter, jodie)
     }
 
-    @Throws(Exception::class)
-    override fun configure(http: HttpSecurity) {
-        http.authorizeRequests()
-            .mvcMatchers("/aircraftadmin/**").hasRole("ADMIN")
+    @Bean
+    fun configure(http: HttpSecurity): SecurityFilterChain {
+        return http
+            .authorizeHttpRequests()
+            .requestMatchers("/aircraftadmin/**").hasRole("ADMIN")
             .anyRequest().authenticated()
             .and()
             .formLogin()
             .and()
             .httpBasic()
+            .and()
+            .build()
     }
 }
