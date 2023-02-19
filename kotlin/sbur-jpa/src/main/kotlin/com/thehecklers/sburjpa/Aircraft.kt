@@ -2,9 +2,9 @@ package com.thehecklers.sburjpa
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.Instant
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.Id
 
 @Entity
 data class Aircraft(

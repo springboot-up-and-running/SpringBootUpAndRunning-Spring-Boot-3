@@ -2,7 +2,7 @@ package com.thehecklers.sburjpa
 
 import org.springframework.stereotype.Component
 import java.time.Instant
-import javax.annotation.PostConstruct
+import jakarta.annotation.PostConstruct
 
 //@Component
 class DataLoader(private val repository: AircraftRepository) {
