@@ -1,4 +1,4 @@
-# SpringBootUpAndRunning-Spring-Boot Version 3
+# SpringBootUpAndRunning: Spring-Boot Version 3
 
 SpringBootUpAndRunning
 SpringBootUpAndRunning 한글번역책 실습코드
