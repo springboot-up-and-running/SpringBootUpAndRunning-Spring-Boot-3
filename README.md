@@ -6,11 +6,12 @@
 
 'Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library'
 
+```
 <dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-all</artifactId>
+	<groupId>io.netty</groupId>
+	<artifactId>netty-all</artifactId>
 </dependency>
-
+```
 --------------------------
 
 SpringBootUpAndRunning
